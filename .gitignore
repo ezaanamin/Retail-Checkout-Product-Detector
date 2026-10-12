@@ -1,0 +1,29 @@
+# Environment
+.venv/
+__pycache__/
+
+# Dataset, generated data and training output (huge)
+archive/
+runs/
+graphs/
+
+# Logs, caches, backups
+*.log
+*.cache
+*.backup
+*.npy
+
+# Weights: ignore everything except the final model
+*.pt
+!weights/final_rpc_model.pt
+
+# Generated per-machine config (contains absolute paths)
+retail_checkout_synth.yaml
+
+# Unrelated exports
+project-*.json
+
+# extra
+*.zip
+data/
+train.py

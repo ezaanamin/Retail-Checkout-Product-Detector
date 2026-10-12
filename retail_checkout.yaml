@@ -1,0 +1,48 @@
+# Retail Product Checkout (RPC) - YOLO dataset config
+# Dataset: https://rpc-dataset.github.io/  (200 SKUs, 83,739 images)
+# Classes below are the 17 RPC meta-categories (SKU-level classes collapsed).
+# Usage (Ultralytics):
+#   yolo detect train data=retail_checkout.yaml model=yolo11m.pt epochs=100 imgsz=640
+
+path: archive/retail_product_checkout
+train: train2019
+val: val2019
+test: test2019
+
+nc: 17
+names:
+  0: puffed_food
+  1: dried_fruit
+  2: dried_food
+  3: instant_drink
+  4: instant_noodles
+  5: dessert
+  6: drink
+  7: alcohol
+  8: milk
+  9: canned_food
+  10: chocolate
+  11: gum
+  12: candy
+  13: seasoner
+  14: personal_hygiene
+  15: tissue
+  16: stationery
+
+# Suggested training settings for checkout scenes (crowded, overlapping items)
+train_args:
+  epochs: 100
+  imgsz: 640
+  batch: 16
+  optimizer: AdamW
+  lr0: 0.001
+  patience: 20
+  mosaic: 1.0
+  mixup: 0.1
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.4
+  fliplr: 0.5
+  flipud: 0.0
+  degrees: 10
+  scale: 0.5
